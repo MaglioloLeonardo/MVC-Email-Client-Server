@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<?import javafx.scene.control.Menu?>
+<AnchorPane prefHeight="417.0" prefWidth="649.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <TableView fx:id="logTableView" layoutX="243.0" layoutY="33.0" prefHeight="381.0" prefWidth="501.0" AnchorPane.leftAnchor="243.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="33.0" AnchorPane.bottomAnchor="5">
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+            <columns>
+                <TableColumn fx:id="typeCol" prefWidth="115.0" style="-fx-alignment: CENTER-LEFT;" text="Type" />
+                <TableColumn fx:id="subtypeCol" prefWidth="218.0" style="-fx-alignment: CENTER;" text="Subtype" />
+                <TableColumn fx:id="dateCol" prefWidth="46.0" style="-fx-alignment: CENTER;" text="Date" />
+            </columns>
+            <contextMenu>
+                <ContextMenu>
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Copy" onAction="#copyLogItem"/>
+                        <MenuItem mnemonicParsing="false" text="Delete" onAction="#deleteLogItem"/>
+                    </items>
+                </ContextMenu>
+            </contextMenu>
+        </TableView>
+        <MenuBar layoutY="-1.0" prefHeight="28.0" prefWidth="649.0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+            <menus>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Delete all logItem" onAction="#deleteAllLogItem"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <ListView fx:id="accountListView" layoutX="4.0" layoutY="34.0" prefHeight="381.0" prefWidth="233.0" AnchorPane.topAnchor="33" AnchorPane.bottomAnchor="5"/>
+    </children>
+</AnchorPane>

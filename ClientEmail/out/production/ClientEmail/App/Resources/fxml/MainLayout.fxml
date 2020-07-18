@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.TextFlow?>
+<AnchorPane prefHeight="417.0" prefWidth="649.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <TreeView fx:id="emailFoldersTreeView" layoutX="14.0" layoutY="46.0" prefHeight="359.0" prefWidth="200.0" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="46.0" />
+        <TableView fx:id="emailTableView" layoutX="214.0" layoutY="46.0" onMouseClicked="#printData" prefHeight="203.0" prefWidth="429.0" AnchorPane.leftAnchor="215.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="46.0">
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+            <columns>
+                <TableColumn fx:id="subjectCol" prefWidth="171.0" text="Subject" style="-fx-alignment: CENTER-LEFT;"/>
+                <TableColumn fx:id="senderCol" prefWidth="94.0" text="Sender" style="-fx-alignment: CENTER;"/>
+                <TableColumn fx:id="sizeCol" prefWidth="46.0" text="Size (byte)" style="-fx-alignment: CENTER;"/>
+                <TableColumn fx:id="dateCol" prefWidth="46.0" text="Date" style="-fx-alignment: CENTER;"/>
+            </columns>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                  <MenuItem mnemonicParsing="false" text="Copy" onAction="#copy"/>
+                  <MenuItem mnemonicParsing="false" text="Reply" onAction="#reply" />
+                  <MenuItem mnemonicParsing="false" text="Forward" onAction="#forward" />
+                  <MenuItem mnemonicParsing="false" text="Delete" onAction="#delete"/>
+              </items>
+            </ContextMenu>
+         </contextMenu>
+        </TableView>
+        <TextFlow fx:id="messageRenderer" layoutX="214.0" layoutY="235.0" prefHeight="181.0" prefWidth="424.0" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="215.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="255.0"
+                  style="-fx-alignment:JUSTIFY; -fx-border-color: grey; -fx-background-color: white; -fx-font-size: 17;" />
+        <MenuBar layoutY="-1.0" prefHeight="28.0" prefWidth="649.0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Connection">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Settings" onAction="#settings"/>
+                <MenuItem fx:id="connectButton" mnemonicParsing="false" text="Connect" onAction="#connect"/>
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="New message" onAction="#newMessage" />
+                <MenuItem mnemonicParsing="false" text="Delete all messages" onAction="#deleteAll"/>
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Label layoutX="521.0" layoutY="29.0" text="Status:" AnchorPane.rightAnchor="95" />
+      <Label fx:id="connectionStatus" layoutX="563.0" layoutY="29.0" text="Disconnected" AnchorPane.rightAnchor="10" />
+    </children>
+</AnchorPane>
